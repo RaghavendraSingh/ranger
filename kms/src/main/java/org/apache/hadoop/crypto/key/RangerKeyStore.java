@@ -74,7 +74,7 @@ import org.apache.ranger.kms.dao.RangerKMSDao;
 public class RangerKeyStore extends KeyStoreSpi {
 	
 	static final Logger logger = Logger.getLogger(RangerKeyStore.class);
-        private static final String KEY_NAME_VALIDATION = "[a-z,A-Z,0-9](?!.*--)(?!.*__)(?!.*-_)(?!.*_-)[\\w\\-\\_]*";
+        private static final String KEY_NAME_VALIDATION = "[a-z,A-Z,0-9](?!.*--)(?!.*__)(?!.*-_)(?!.*_-)[\\w\\-\\_\\+]*";
         private static final Pattern pattern = Pattern.compile(KEY_NAME_VALIDATION);
 		
 	private DaoManager daoManager;
