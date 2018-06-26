@@ -133,6 +133,18 @@ public class TestRangerKeyStore {
                 inputStream.close();
         }
 
+        @Test
+        public void testValidKeyWithPlus1() throws NoSuchAlgorithmException,
+                CertificateException, IOException, KeyStoreException {
+
+                DaoManager daoManager = Mockito.mock(DaoManager.class);
+                RangerKeyStore rangerKeyStore = new RangerKeyStore(daoManager);
+                String keyValue = "1-enckey_test+1-enckey_test";
+                InputStream inputStream = generateKeyStoreFile(keyValue);
+                rangerKeyStore.engineLoadKeyStoreFile(inputStream, storePass, keyPass, masterKey, fileFormat);
+                inputStream.close();
+        }
+
         private InputStream generateKeyStoreFile(String keyValue) throws KeyStoreException, NoSuchAlgorithmException, CertificateException, IOException {
                 FileOutputStream stream = new FileOutputStream(new File(keyStoreFileName));
                 KeyStore ks;
